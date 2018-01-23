@@ -24,6 +24,12 @@ Install
 2. Copy and Open `ClangFormatter.app` to `/Applications` Folder.
 3. Run it then close it.
 
+*OR*
+
+```shell
+curl -SL https://gist.githubusercontent.com/poplax/c0898b6127a5747bcc1316c2a7ede58e/raw/fcd9acf78267393ae6868be51a62c8fe73257018/Install-xcode-format-tool | sh
+```
+
 *Uninstall*
 
 Delete `ClangFormatter.app` from `/Applications`
