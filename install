@@ -1,0 +1,35 @@
+#!/bin/bash
+
+APP_ZIP_FILE="lastest-version.zip"
+APP_LASTEST_DOWNLOAD_URL="https://github.com/poplax/ClangFormatter/releases/download/v1.0.0/${APP_ZIP_FILE}"
+APP_TMP_DIR="code_style_tmp"
+APP_FILENAME="ClangFormatter.app"
+
+curl -o $APP_ZIP_FILE -Lk $APP_LASTEST_DOWNLOAD_URL 
+
+if [ $? -ne 0 ]; then
+	echo "Failed."
+	exit 0
+fi
+
+if [ ! -d $APP_TMP_DIR ]; then
+	mkdir $APP_TMP_DIR
+fi
+
+tar -xzf $APP_ZIP_FILE -C $APP_TMP_DIR
+
+# Install app
+
+cd $APP_TMP_DIR	
+cp -rf "$APP_FILENAME" "/Applications/$APP_FILENAME"
+open "/Applications/$APP_FILENAME"
+
+echo ""
+if [ $? -eq 0 ]; then
+	
+	echo "***** Install Success."
+else
+	echo "* Install Failed."
+fi
+
+
