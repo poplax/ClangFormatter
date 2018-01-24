@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APP_ZIP_FILE="lastest-version.zip"
+APP_ZIP_FILE="lastest-version.gz"
 APP_LASTEST_DOWNLOAD_URL="https://github.com/poplax/ClangFormatter/releases/download/v1.0.0/${APP_ZIP_FILE}"
 APP_TMP_DIR="code_style_tmp"
 APP_FILENAME="ClangFormatter.app"
@@ -8,7 +8,9 @@ APP_FILENAME="ClangFormatter.app"
 RED="\033[0;31m"
 GREEN="\033[0;32m"
 
-curl -o $APP_ZIP_FILE -Lk $APP_LASTEST_DOWNLOAD_URL 
+curl -o $APP_ZIP_FILE -LSk $APP_LASTEST_DOWNLOAD_URL 
+
+echo "$APP_LASTEST_DOWNLOAD_URL"
 
 if [ $? -ne 0 ]; then
 	echo $RED"Failed."

@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		4919EBF820188AD8009D5CB4 /* BuildPackage */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 4919EBF920188AD8009D5CB4 /* Build configuration list for PBXAggregateTarget "BuildPackage" */;
+			buildPhases = (
+				4919EBFE20188AE3009D5CB4 /* ShellScript */,
+			);
+			dependencies = (
+				4919EBFD20188ADF009D5CB4 /* PBXTargetDependency */,
+			);
+			name = BuildPackage;
+			productName = BuildPackage;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4909568220118CA600A2FB3D /* FormatConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909568120118CA600A2FB3D /* FormatConfig.swift */; };
 		490F268120078A4600F260F4 /* _clang-format-objc in Resources */ = {isa = PBXBuildFile; fileRef = 490F268020078A4600F260F4 /* _clang-format-objc */; };
@@ -22,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4919EBFC20188ADF009D5CB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1417CA41D19E832005DEFA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1417CAB1D19E832005DEFA3;
+			remoteInfo = ClangFormatter;
+		};
 		A1417CCD1D19EB7D005DEFA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A1417CA41D19E832005DEFA3 /* Project object */;
@@ -48,6 +70,7 @@
 /* Begin PBXFileReference section */
 		4909568120118CA600A2FB3D /* FormatConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatConfig.swift; sourceTree = "<group>"; };
 		490F268020078A4600F260F4 /* _clang-format-objc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_clang-format-objc"; sourceTree = "<group>"; };
+		491777AE201866C0002F8871 /* build_script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_script.sh; sourceTree = "<group>"; };
 		4971349220120C3100D3CD91 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		4971349420120D7200D3CD91 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		49A486262004C24400B4758A /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
@@ -167,6 +190,7 @@
 				A1417CD41D19ED17005DEFA3 /* clang-format */,
 				A1417CC71D19EB7D005DEFA3 /* ClangFormat.entitlements */,
 				A1417CCC1D19EB7D005DEFA3 /* Info.plist */,
+				491777AE201866C0002F8871 /* build_script.sh */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -221,6 +245,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "🚀";
 				TargetAttributes = {
+					4919EBF820188AD8009D5CB4 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 29C5EDQ3MS;
+						ProvisioningStyle = Automatic;
+					};
 					A1417CAB1D19E832005DEFA3 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 29C5EDQ3MS;
@@ -257,6 +286,7 @@
 			targets = (
 				A1417CAB1D19E832005DEFA3 /* ClangFormatter */,
 				A1417CC01D19EB7D005DEFA3 /* ClangFormat */,
+				4919EBF820188AD8009D5CB4 /* BuildPackage */,
 			);
 		};
 /* End PBXProject section */
@@ -283,6 +313,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4919EBFE20188AE3009D5CB4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./ClangFormat/build_script.sh\n";
+		};
 		A11B69191D19F9CF00802D08 /* Fix Permissions */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +366,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4919EBFD20188ADF009D5CB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1417CAB1D19E832005DEFA3 /* ClangFormatter */;
+			targetProxy = 4919EBFC20188ADF009D5CB4 /* PBXContainerItemProxy */;
+		};
 		A1417CCE1D19EB7D005DEFA3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A1417CC01D19EB7D005DEFA3 /* ClangFormat */;
@@ -343,6 +391,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4919EBFA20188AD8009D5CB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29C5EDQ3MS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4919EBFB20188AD8009D5CB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 29C5EDQ3MS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A1417CB71D19E833005DEFA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -437,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -444,11 +511,13 @@
 				DEVELOPMENT_TEAM = 29C5EDQ3MS;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iosteampw.ClangFormatter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -456,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -463,11 +533,14 @@
 				DEVELOPMENT_TEAM = 29C5EDQ3MS;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iosteampw.ClangFormatter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -475,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_ENTITLEMENTS = ClangFormat/ClangFormat.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +567,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -500,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_ENTITLEMENTS = ClangFormat/ClangFormat.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -512,18 +588,29 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.iosteampw.ClangFormatter.ClangFormat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4919EBF920188AD8009D5CB4 /* Build configuration list for PBXAggregateTarget "BuildPackage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4919EBFA20188AD8009D5CB4 /* Debug */,
+				4919EBFB20188AD8009D5CB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A1417CA71D19E832005DEFA3 /* Build configuration list for PBXProject "ClangFormatter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
