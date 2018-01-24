@@ -26,7 +26,7 @@ tar -xzf $APP_ZIP_FILE -C $APP_TMP_DIR
 # Install app
 
 cd $APP_TMP_DIR	
-cp -rf "$APP_FILENAME" "/Applications/$APP_FILENAME"
+cp -rf "$APP_FILENAME" "/Applications/"
 open "/Applications/$APP_FILENAME"
 
 if [ $? -eq 0 ]; then

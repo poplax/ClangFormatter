@@ -27,7 +27,7 @@ Install
 *OR*
 
 ```shell
-curl -SL https://gist.githubusercontent.com/poplax/c0898b6127a5747bcc1316c2a7ede58e/raw/fcd9acf78267393ae6868be51a62c8fe73257018/Install-xcode-format-tool | sh
+curl -SL https://gist.githubusercontent.com/poplax/c0898b6127a5747bcc1316c2a7ede58e/raw/59339589cae4eacf590fc1ca8dc2cb8bafc330c8/Install-xcode-format-tool | sh
 ```
 
 *Uninstall*
