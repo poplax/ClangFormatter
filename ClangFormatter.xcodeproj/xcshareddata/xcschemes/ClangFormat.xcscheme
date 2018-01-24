@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1417CC01D19EB7D005DEFA3"
-               BuildableName = "ClangFormat.appex"
-               BlueprintName = "ClangFormat"
+               BlueprintIdentifier = "A1417CAB1D19E832005DEFA3"
+               BuildableName = "ClangFormatter.app"
+               BlueprintName = "ClangFormatter"
                ReferencedContainer = "container:ClangFormatter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,9 +29,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1417CAB1D19E832005DEFA3"
-               BuildableName = "ClangFormatter.app"
-               BlueprintName = "ClangFormatter"
+               BlueprintIdentifier = "A1417CC01D19EB7D005DEFA3"
+               BuildableName = "ClangFormat.appex"
+               BlueprintName = "ClangFormat"
                ReferencedContainer = "container:ClangFormatter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,9 +48,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1417CC01D19EB7D005DEFA3"
-            BuildableName = "ClangFormat.appex"
-            BlueprintName = "ClangFormat"
+            BlueprintIdentifier = "A1417CAB1D19E832005DEFA3"
+            BuildableName = "ClangFormatter.app"
+            BlueprintName = "ClangFormatter"
             ReferencedContainer = "container:ClangFormatter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,7 +58,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       language = ""

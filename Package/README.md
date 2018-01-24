@@ -25,6 +25,14 @@ You can run script(The same level directory):
 cp -f ./_clang-format-objc /Applications/ClangFormatter.app/Contents/PlugIns/ClangFormat.appex/Contents/Resources/_clang-format-objc
 ```
 
+*OR*
+
+just run `update_config_file.sh`
+
+``` shell
+sh update_config_file.sh
+```
+
 ## TODO List.
 
 - Edit profile features.
