@@ -12,58 +12,110 @@ import XcodeKit
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
     // max bytes of config file.  default: 100 KB.
-    static let plkConfigMaxSizeBytes = 100 * 1024
+    static let plkConfigMaxSizeBytes = 100 * 1000
+    // max bytes of source file.  default: 500 KB.
+    static let plkSourceFileSizeBytes = 500 * 1000
+
+    // Support source-code.
+    let plSupportSourceTypes = ["public.objective-c-source",
+        "public.c-header",
+        "public.c-source",
+        "public.objective-c-plus-plus-source",
+        "public.c-plus-plus-source"]
+
+    enum codeSourceError: Error {
+        case notSupport
+        case configFileInvalid
+        case codeSourceMaxSizeLimit
+    }
 
     let plConfig = FormatConfig()
-
 
     var commandPath: String {
         return Bundle.main.path(forResource: "clang-format", ofType: nil)!
     }
 
-    static func run(_ commandPath: String, arguments: [String], stdin: String) -> String? {
+    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
 
-        let errorPipe = Pipe()
-        let outputPipe = Pipe()
+        if (plSupportSourceTypes.contains(invocation.buffer.contentUTI))
+            {
+            SourceEditorCommand.runCommand(commandPath: commandPath,
+                                           arguments: ["-style=file", "-assume-filename=\(plConfig.language)"],
+                                           stdin: invocation.buffer.completeBuffer) { (content, err) in
 
+                if err == nil, content!.count > 0 {
+
+                    invocation.buffer.completeBuffer = content!
+                }
+
+                DispatchQueue.main.async {
+
+                    completionHandler(err)
+                }
+            }
+
+        }
+        else
+        {
+            completionHandler(codeSourceError.notSupport)
+        }
+
+    }
+
+    static func runCommand(commandPath: String,
+                           arguments: [String],
+                           stdin: String,
+                           completion: @escaping (String?, Error?) -> Void) -> Void {
+        
         let task = Process()
-        task.standardError = errorPipe
-        task.standardOutput = outputPipe
+//        let errorPipe = Pipe()
+//        task.standardError = errorPipe
+
         task.launchPath = commandPath
         task.arguments = arguments
 
         if !SourceEditorCommand.updateConfigIfNeeded(currentDirectory: task.currentDirectoryPath) {
-            return nil
+
+            completion(nil, codeSourceError.configFileInvalid)
+            return
         }
 
         let inputPipe = Pipe()
         task.standardInput = inputPipe
-        let stdinHandle = inputPipe.fileHandleForWriting
+        let inHandle = inputPipe.fileHandleForWriting
 
-        if let data = stdin.data(using: .utf8) {
-            stdinHandle.write(data)
-            stdinHandle.closeFile()
+        let outputPipe = Pipe()
+        task.standardOutput = outputPipe
+        let outHandle = outputPipe.fileHandleForReading
+
+        inHandle.writeabilityHandler = { file -> Void in
+
+            if let data = stdin.data(using: .utf8) {
+                
+                if data.count > plkSourceFileSizeBytes {
+                    
+                    completion(nil, codeSourceError.codeSourceMaxSizeLimit)
+                    inHandle.writeabilityHandler = nil
+                    return
+                }
+                
+                file.write(data)
+                file.closeFile()
+            }
+
+            inHandle.writeabilityHandler = nil
+        }
+
+        outHandle.readabilityHandler = { file -> Void in
+
+            let outputData = outHandle.readDataToEndOfFile()
+            let str = String(data: outputData, encoding: .utf8)
+            completion(str, nil)
+
+            outHandle.readabilityHandler = nil
         }
 
         task.launch()
-        task.waitUntilExit()
-
-        errorPipe.fileHandleForReading.readDataToEndOfFile()
-
-        let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        return String(data: outputData, encoding: .utf8)
-    }
-
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
-        if let outputString = SourceEditorCommand.run(commandPath,
-                                                      arguments: ["-style=file", "-assume-filename=\(plConfig.language)"],
-                                                      stdin: invocation.buffer.completeBuffer),
-            invocation.buffer.contentUTI == "public.objective-c-source" {
-
-            invocation.buffer.completeBuffer = outputString
-        }
-
-        completionHandler(nil)
     }
 
     // MARK: -
@@ -125,3 +177,4 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
 
 }
+
