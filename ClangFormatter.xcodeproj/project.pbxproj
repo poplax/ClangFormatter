@@ -74,8 +74,6 @@
 		4971349220120C3100D3CD91 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		4971349420120D7200D3CD91 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		49A486262004C24400B4758A /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
-		49B805FE2019E36F0062793E /* ClangFormat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClangFormat-Bridging-Header.h"; sourceTree = "<group>"; };
-		49B805FF2019E36F0062793E /* ExceptionCatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExceptionCatcher.h; sourceTree = "<group>"; };
 		A1417CAC1D19E832005DEFA3 /* ClangFormatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClangFormatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1417CAF1D19E832005DEFA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1417CB11D19E833005DEFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,8 +121,6 @@
 				49A486262004C24400B4758A /* Files.swift */,
 				4971349220120C3100D3CD91 /* String+MD5.swift */,
 				4909568120118CA600A2FB3D /* FormatConfig.swift */,
-				49B805FF2019E36F0062793E /* ExceptionCatcher.h */,
-				49B805FE2019E36F0062793E /* ClangFormat-Bridging-Header.h */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -579,7 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ClangFormat/lib/ClangFormat-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -609,7 +605,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ClangFormat/lib/ClangFormat-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "i386 x86_64";
