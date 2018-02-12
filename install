@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ue
+
 APP_ZIP_FILE="lastest-version.gz"
 APP_LASTEST_DOWNLOAD_URL="https://github.com/poplax/ClangFormatter/releases/download/v1.0.0/${APP_ZIP_FILE}"
 APP_TMP_DIR="code_style_tmp"
